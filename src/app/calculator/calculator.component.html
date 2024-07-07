@@ -1,0 +1,91 @@
+<style>
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    background-color: rgb(255, 240, 211);
+    border: 5px solid rgb(222, 184, 135);
+    border-radius: 16px;
+  }
+
+  .calculator__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .calculator__display {
+    width: calc(100% - 83px);
+    border: 3px solid rgb(222, 184, 135);
+    border-radius: 16px;
+    background-color: rgb(252, 232, 194);
+    font-family: monospace;
+    font-size: 24px;
+    color: rgb(150, 100, 30);
+  }
+
+  .calculator__button {
+    width: 60px;
+    height: 50px;
+    background-color: rgb(252, 232, 194);
+    border: 3px solid rgb(222, 184, 135);
+    border-radius: 16px;
+    font-family: monospace;
+    font-size: 24px;
+    color: rgb(150, 100, 30);
+    cursor: pointer;
+  }
+
+  .calculator__divider {
+    display: flex;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(222, 184, 135);
+  }
+</style>
+
+<div class="calculator">
+  <div class="calculator__row calculator__row--screen">
+    <input class="calculator__display" type="text" readonly [(ngModel)]="display" />
+    <button class="calculator__button" (click)="removeCharacter()">&lt;</button>
+  </div>
+
+  <div class="calculator__divider"></div>
+
+  <div class="calculator__row calculator__row--screen">
+    <button class="calculator__button" (click)="addCharacter('1')">1</button>
+    <button class="calculator__button" (click)="addCharacter('2')">2</button>
+    <button class="calculator__button" (click)="addCharacter('3')">3</button>
+    <button class="calculator__button" (click)="addCharacter(' + ')">+</button>
+  </div>
+
+  <div class="calculator__divider"></div>
+
+  <div class="calculator__row calculator__row--screen">
+    <button class="calculator__button" (click)="addCharacter('4')">4</button>
+    <button class="calculator__button" (click)="addCharacter('5')">5</button>
+    <button class="calculator__button" (click)="addCharacter('6')">6</button>
+    <button class="calculator__button" (click)="addCharacter(' - ')">-</button>
+  </div>
+
+  <div class="calculator__divider"></div>
+
+  <div class="calculator__row calculator__row--screen">
+    <button class="calculator__button" (click)="addCharacter('7')">7</button>
+    <button class="calculator__button" (click)="addCharacter('8')">8</button>
+    <button class="calculator__button" (click)="addCharacter('9')">9</button>
+    <button class="calculator__button" (click)="addCharacter(' * ')">*</button>
+  </div>
+
+  <div class="calculator__divider"></div>
+
+  <div class="calculator__row calculator__row--screen">
+    <button class="calculator__button" (click)="addCharacter('.')">.</button>
+    <button class="calculator__button" (click)="addCharacter('0')">0</button>
+    <button class="calculator__button" (click)="calculate()">=</button>
+    <button class="calculator__button" (click)="addCharacter(' / ')">/</button>
+  </div>
+</div>
